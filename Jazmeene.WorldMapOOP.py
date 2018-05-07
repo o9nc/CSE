@@ -30,14 +30,3 @@ while True:
     command = input('>_').lower().strip()
     if command == 'quit':
         quit(0)
-    elif command in short_directions:
-        # Look for which command we typed in
-        pos = short_directions.index(command)
-        # Change the command to be the long form
-        command = directions[pos]
-    if command in directions:
-        try:
-            current_node.move(command)
-        except KeyError:
-            print("you cannot go this way")
-

@@ -41,7 +41,7 @@ Test2.basketball_use()
 
 class Ball_Hog_Gloves (Towel):
     def __init__(self):
-       super(Ball_Hog_Gloves, self).__init__("handling", "ball hog gloves", 2, None)
+        super(Ball_Hog_Gloves, self).__init__("handling", "ball hog gloves", 2, None)
 
     def ball_hog_gloves_use(self):
         print("you use the ball hog gloves for %s" % self.use)
@@ -80,5 +80,35 @@ class Shirt(Outfit):
         print("you %s when you're done playing basketball" % self.use)
 
 
-Test4 = Shirt("")
-Test4.Shirt()
+class Room(object):
+    def __init__(self, name, description, north, south, east, west, up, down):
+        self.north = north
+        self.south = south
+        self.east = east
+        self.west = west
+        self.up = up
+        self.down = down
+        self.description = description
+        self.name = name
+
+    def move(self, direction):
+        global current_node
+        current_node = globals()[getattr(self, direction)]
+
+
+# Initialize Rooms
+SCE = Room("Sport complex entrance", "This is a building with two doors. On the west side of the building there is an "
+                                     "entrance door. On the south side there is an exit.", None, None, "FIELD ONE", None
+           , None, None)
+
+
+current_node = SCE
+directions = ['north', 'south', 'east', 'west']
+short_directions = ['n', 's', 'e', 'w']
+
+while True:
+    print(current_node.name)
+    print(current_node.description)
+    command = input('>_').lower().strip()
+    if command == 'quit':
+        quit(0)

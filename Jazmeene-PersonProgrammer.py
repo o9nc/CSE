@@ -13,3 +13,16 @@ class Employee(Person):
         self.job = job
 
 
+def Job():
+    print("you work at footlocker")
+
+
+def Age():
+    print("you are 24 years old")
+
+
+
+
+
+
+
